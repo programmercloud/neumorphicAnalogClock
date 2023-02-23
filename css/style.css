@@ -1,0 +1,180 @@
+/* Set background color, text alignment, and font 
+size for the entire HTML document */
+html {
+  background: #d32343;
+  text-align: center;
+  font-size: 10px;
+}
+
+/* Set margin, font size, display, flex, minimum height, 
+and alignment for the body element */
+body {
+  margin: 0;
+  font-size: 2rem;
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+}
+
+/* Set width, height, position, padding, border, box shadow,
+ border radius, and margin for the clock */
+.clock {
+  width: 30rem;
+  height: 30rem;
+  position: relative;
+  padding: 2rem;
+  border: 18px solid #d32343;
+  box-shadow: 5px -5px 5px 0px rgba(205, 18, 52, 0.5),
+    -5px 8px 8px 0px rgba(135, 9, 30, 0.5),
+    inset -3.5px 5.5px 6px 0px rgba(144, 4, 27, 0.5),
+    inset 3px -3px 1px 0px rgba(116, 34, 49, 0.15);
+  border-radius: 50%;
+  margin: 50px auto;
+}
+
+/* Set position, background color, overflow, width, 
+height, and border radius for the outer clock face */
+.outer-clock-face {
+  position: relative;
+  background: #d32343;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+/* Rotate the outer clock face by 90 degrees */
+.outer-clock-face::after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* Set position, width, height, background color, 
+z-index, and left offset for the outer clock face, 
+its before and after pseudo-elements, and its markings */
+.outer-clock-face::after,
+.outer-clock-face::before,
+.outer-clock-face .marking {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background: #cb857c;
+  z-index: 0;
+  left: 49%;
+}
+
+/*  set the background color and width for the markings on  */
+
+.outer-clock-face .marking {
+  background: #cb857c;
+  width: 3px;
+}
+
+/*  apply a 30-degree rotation transformation to the first marking */
+
+.outer-clock-face .marking.marking-one {
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+/* apply a 60-degree rotation transformation to the second marking. */
+
+.outer-clock-face .marking.marking-two {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  transform: rotate(60deg);
+}
+
+/* apply a 120-degree rotation transformation to the third marking */
+
+.outer-clock-face .marking.marking-three {
+  -webkit-transform: rotate(120deg);
+  -moz-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+
+/* apply a 150-degree rotation transformation to the fourth marking. */
+
+.outer-clock-face .marking.marking-four {
+  -webkit-transform: rotate(150deg);
+  -moz-transform: rotate(150deg);
+  transform: rotate(150deg);
+}
+
+/* set the position, size, background color, and border-radius 
+for the inner clock face. */
+
+.inner-clock-face {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: #d32343;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+/* adds a circular element to the center of the clock face 
+with a background color and border-radius. */
+
+.inner-clock-face::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 18px;
+  margin-left: -9px;
+  margin-top: -6px;
+  background: #f6cbb7;
+  z-index: 11;
+}
+
+/* set the size, position, background color, border-radius,
+ rotation, and transition for the clock hands. */
+
+.hand {
+  width: 50%;
+  right: 50%;
+  height: 6px;
+  background: #f6cbb7;
+  position: absolute;
+  top: 50%;
+  border-radius: 6px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+/*  set the width and z-index for the hour hand. */
+
+.hand.hour-hand {
+  width: 30%;
+  z-index: 3;
+}
+
+/*  set the height, width, and z-index for the minute hand. */
+
+.hand.min-hand {
+  height: 3px;
+  z-index: 10;
+  width: 45%;
+}
+
+/* set the background color, height, width, 
+and z-index for the second hand */
+
+.hand.second-hand {
+  background: #faf7f4;
+  width: 45%;
+  height: 2px;
+  z-index: 1;
+}
